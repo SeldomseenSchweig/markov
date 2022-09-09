@@ -9,6 +9,7 @@ class MarkovMachine {
     let words = text.split(/[ \r\n]+/);
     this.words = words.filter(c => c !== "");
     this.makeChains();
+    this.chain = {}
   }
 
   /** set markov chains:
@@ -24,8 +25,7 @@ class MarkovMachine {
           while (i < (this.words).length - 1) {
 
               if(this.words[i] in chain){
-                console.log('hello')
-                chain[this.words[i]].push(this.word[i+1])
+                chain[this.words[i]].push(this.words[i+1])
                 i++
               }else{
                 chain[this.words[i]] = []
@@ -33,7 +33,7 @@ class MarkovMachine {
                 i++
               }
             }
-      console.log(chain)
+            console.log(chain)
     }
 
   
@@ -42,8 +42,10 @@ class MarkovMachine {
   /** return random text from chains */
 
   makeText(numWords = 100) {
-    // TODO
+
   }
 }
 
-m = new MarkovMachine('cat in the hat')
+m = new MarkovMachine('cat in the hat lat blue pink red orange blue blue blue blue black red green purple he didnt know where to got so went on his way')
+
+m.makeText()
